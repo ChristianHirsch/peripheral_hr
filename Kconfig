@@ -1,0 +1,19 @@
+menuconfig NRF52840_RESET
+        bool "Reset nRF52840 SoC for BLE communication"
+
+if NRF52840_RESET
+
+        config NRF52840_RESET_PIN
+                int "Pin used to reset nRF52840"
+                default 0
+                range 0 63
+
+        config NRF52840_RESET_STATE
+                bool "Active High or Low Reset State"
+                default false
+
+endif # NRF52840_RESET
+
+menu "Zephyr Kernel"
+source "Kconfig.zephyr"
+endmenu
